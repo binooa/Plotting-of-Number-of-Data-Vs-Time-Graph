@@ -1,34 +1,35 @@
 # Plot a Graph to show the performance of an Algorithm
 Plotting a Graph to show the perfromance of an algorithm Python matplotlib and Google colab.
 
-## Populating an Array using random() function
+## How to use Google Colab
 
-```C
-#include <stdio.h>
-#include <stdlib.h>
-int main()
-{
+To start working with Colab you first need to log in to your google account, then go to this link https://colab.research.google.com
 
-    long *data;
-    long num=100000, j;
-    data = (long *)malloc(sizeof(long)*num);
-    if(data != NULL)
-    {
-        for(j = 0; j < num; j++)
-        {
-            data[j] = rand()%100;
-        }
-    }
+```python
+import numpy as np
+import numpy as np
+from scipy.interpolate import make_interp_spline
+import matplotlib.pyplot as plt
+ 
+# Dataset
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([1, 4, 9, 16, 25, 36, 49, 64])
+ 
+X_Y_Spline = make_interp_spline(x, y)
+ 
+# Returns evenly spaced numbers
+# over a specified interval.
+X_ = np.linspace(x.min(), x.max(), 500)
+Y_ = X_Y_Spline(X_)
 
-    for(j = 0; j < num; j++)
-    {
-        printf("%ld\n",data[j]);
-    }
-    
-    free(data);
-    return 0;
-
-}
+# Plotting the Graph
+plt.plot(X_, Y_,label="Bubble Sort")
+plt.grid()
+plt.title("Number of Elements Vs Time Taken - Graph")
+plt.xlabel("Number of Data (n)")
+plt.ylabel("Time Taken to Complete the Execution (t msec)")
+plt.legend()
+plt.show()
 
 ```
 
