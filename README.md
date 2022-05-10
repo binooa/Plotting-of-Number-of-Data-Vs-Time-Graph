@@ -100,7 +100,7 @@ Y_merge = X_Y_merge(X_)
 
 # Plotting the Graph
 plt.plot(X_, Y_bubble,label="Bubble Sort (Time n^2)")
-plt.plot(X_, Y_merge,label="Insertion Sort(Time nlogn)")
+plt.plot(X_, Y_merge,label="Merge Sort (Time nlogn)")
 plt.grid()
 plt.title("Number of Elements Vs Time Taken - Graph")
 plt.xlabel("Number of Data (n)")
