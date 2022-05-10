@@ -69,10 +69,15 @@ plt.ylabel("Time Taken to Complete the Execution (tmsec)")
 plt.legend()
 plt.show()
 ```
-## Multi Plots
+
+Output looks like as given below
+
+![alt text](merge.png)
+
+## Multi Plots - Bublle Sort Vs Merge Sort
 A plot to represent multiple graphs.
 
-'''python
+```python
 
 import numpy as np
 import numpy as np
@@ -103,6 +108,9 @@ plt.ylabel("Time Taken to Complete the Execution (tmsec)")
 plt.legend()
 plt.show()
 
-'''
+```
+Output looks like as given below
+
+![alt text](mix.png)
 
 
