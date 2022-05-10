@@ -6,7 +6,7 @@ Plotting a Graph to show the perfromance of an algorithm Python matplotlib and G
 To start working with Colab you first need to log in to your google account, then go to this link https://colab.research.google.com
 
 
-## First Plot - Bublle Sort
+## First Plot - Bubble Sort
 
 Use following python code to start. Press new Cell button and paste following python code. To run the python program press Run icon show in the cell. If it shows any missing packages, Enter "pip3 install scipy" in a new cell and run.
 
