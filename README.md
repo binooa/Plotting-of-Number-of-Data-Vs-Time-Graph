@@ -5,6 +5,11 @@ Plotting a Graph to show the perfromance of an algorithm Python matplotlib and G
 
 To start working with Colab you first need to log in to your google account, then go to this link https://colab.research.google.com
 
+
+## First Plot - Bublle Sort
+
+Use following python code to start. Press new Cell button and paste following python code. To run the python program press Run icon show in the cell. If it shows any missing packages, Enter "pip3 install scipy" in a new cell and run.
+
 ```python
 import numpy as np
 import numpy as np
@@ -32,48 +37,72 @@ plt.legend()
 plt.show()
 
 ```
+Output looks like as given below
 
-## Estimating the Time Taken to Complete execution of a program block
+![alt text](bubble.png)
 
-```C
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+## Second Plot - Merge Sort
 
-float timedifference_msec(struct timeval t0, struct timeval t1)
-{
-    return (t1.tv_sec - t0.tv_sec) * 1000.0f + (t1.tv_usec - t0.tv_usec) / 1000.0f;
-}
+```python
+import numpy as np
+import numpy as np
+from scipy.interpolate import make_interp_spline
+import matplotlib.pyplot as plt
+ 
+# Dataset
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y = np.array([0,0.602059991,1.431363764,2.408239965,3.494850022,4.668907502,5.91568628,7.224719896])
+ 
+X_Y_Spline = make_interp_spline(x, y)
+ 
+# Returns evenly spaced numbers
+# over a specified interval.
+X_ = np.linspace(x.min(), x.max(), 500)
+Y_ = X_Y_Spline(X_)
 
-int main(void)
-{
-   struct timeval t0;
-   struct timeval t1;
-   float elapsed;
-   
-   long *data;
-   long num=100000000, j;
-   data = (long *)malloc(sizeof(long)*num);
-
-   gettimeofday(&t0, NULL);
-   if(data != NULL)
-    {
-        for(j = 0; j < num; j++)
-        {
-            data[j] = rand()%100;
-        }
-    }
-   gettimeofday(&t1, NULL);
-
-   elapsed = timedifference_msec(t0, t1);
-
-   printf("Code executed in %f milliseconds.\n", elapsed);
-
-   return 0;
-}
+# Plotting the Graph
+plt.plot(X_, Y_,label="Merge Sort")
+plt.grid()
+plt.title("Number of Elements Vs Time Taken - Graph")
+plt.xlabel("Number of Data (n)")
+plt.ylabel("Time Taken to Complete the Execution (tmsec)")
+plt.legend()
+plt.show()
 ```
-## Find out the Execution Time of following two programs 
+## Multi Plots
+A plot to represent multiple graphs.
 
-> Use different num values (num =100, num =10000, num =1000000, num =100000000)
--   [Bubble Sort](https://github.com/binooa/Performance-Evaluation/blob/main/BubbleSort.c)
--   [Selection Sort](https://github.com/binooa/Performance-Evaluation/blob/main/SelectionSort.c)
+'''python
+
+import numpy as np
+import numpy as np
+from scipy.interpolate import make_interp_spline
+import matplotlib.pyplot as plt
+ 
+# Dataset
+x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+y_bubble = np.array([1, 4, 9, 16, 25, 36, 49, 64])
+y_merge = np.array([0,0.602059991,1.431363764,2.408239965,3.494850022,4.668907502,5.91568628,7.224719896])
+ 
+X_Y_bubble = make_interp_spline(x, y_bubble)
+X_Y_merge = make_interp_spline(x, y_merge) 
+
+# Returns evenly spaced numbers
+# over a specified interval.
+X_ = np.linspace(x.min(), x.max(), 500)
+Y_bubble = X_Y_bubble(X_)
+Y_merge = X_Y_merge(X_)
+
+# Plotting the Graph
+plt.plot(X_, Y_bubble,label="Bubble Sort (Time n^2)")
+plt.plot(X_, Y_merge,label="Insertion Sort(Time nlogn)")
+plt.grid()
+plt.title("Number of Elements Vs Time Taken - Graph")
+plt.xlabel("Number of Data (n)")
+plt.ylabel("Time Taken to Complete the Execution (tmsec)")
+plt.legend()
+plt.show()
+
+'''
+
+
